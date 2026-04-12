@@ -1,0 +1,1773 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Fiche de Synthèse — LA RÉVOLUTION FRANÇAISE ET L'EMPIRE</title>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+		<style>
+			:root {
+				--primary: #6366f1;
+				--secondary: #0ea5e9;
+				--success: #10b981;
+				--warning: #f59e0b;
+				--danger: #ef4444;
+				--info: #ec4899;
+				--purple: #413BDD;
+				--bilan: #64748b;
+				
+				--bg-white: #ffffff;
+				--bg-light: #f8fafc;
+				--text-dark: #1e293b;
+				--text-muted: #64748b;
+				--text-light: #ffffff;
+				
+				--spacing-sm: 12px;
+				--spacing-md: 16px;
+				--spacing-lg: 24px;
+				--spacing-xl: 32px;
+				
+				--radius-md: 12px;
+				--radius-lg: 16px;
+				
+				--shadow-sm: 0 2px 8px rgba(108, 92, 231, 0.08);
+				--shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+				
+				--gradient-primary: linear-gradient(100deg, var(--primary), #a5b4fc);
+				--gradient-secondary: linear-gradient(100deg, var(--secondary), #7dd3fc);
+				--gradient-success: linear-gradient(100deg, var(--success), #6ee7b7);
+				--gradient-warning: linear-gradient(100deg, var(--warning), #fbbf24);
+				--gradient-danger: linear-gradient(100deg, var(--danger), #f87171);
+				--gradient-info: linear-gradient(100deg, var(--info), #f472b6);
+				--gradient-carte: linear-gradient(100deg, var(--purple), #7490FF);
+				--gradient-bilan: linear-gradient(100deg, var(--bilan), #9EA9AD);
+				--gradient-carte-mentale: linear-gradient(100deg, #E9AC16, #fbbf24);
+			}
+			
+			[data-theme="dark"] {
+				--bg-light: #292929;
+				--bg-white: #3a3a3a;
+				--text-dark: #e8e8e8;
+				--text-muted: #b8b8b8;
+				--shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+				--shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+			}
+			
+			* { box-sizing: border-box; }
+			
+			body {
+				font-family: 'Roboto', Arial, sans-serif;
+				margin: 0;
+				padding-top: 80px;
+				background: var(--bg-light);
+				color: var(--text-dark);
+				transition: all 0.3s ease;
+			}
+			
+			/* Toolbar */
+			.toolbar {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				height: 80px;
+				background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+				border-bottom: 2px solid #e9ecef;
+				box-shadow: var(--shadow-md);
+				z-index: 1000;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 12px;
+				padding: 10px 20px;
+			}
+			
+			[data-theme="dark"] .toolbar {
+				background: linear-gradient(135deg, #2e2e2e 0%, #2e2e2e 100%);
+				border-bottom-color: #444444;
+			}
+			
+			.toolbar-btn {
+				color: white;
+				border: none;
+				padding: 12px 20px;
+				border-radius: 20px;
+				cursor: pointer;
+				font-size: 14px;
+				font-weight: 600;
+				transition: transform 0.2s ease;
+			}
+			
+			.toolbar-btn:hover { transform: translateY(-2px); }
+			
+			.btn-theme { background: linear-gradient(135deg, #74b9ff, #0984e3); }
+			.btn-print { background: linear-gradient(135deg, #4BC01B, #3A9415); }
+			.btn-font  { background: linear-gradient(135deg, #fd79a8, #e84393); }
+
+			/* Contenu principal */
+			.content {
+				max-width: 1200px;
+				margin: 20px auto;
+				padding: 30px;
+			}
+			
+			/* En-tête */
+			.chapter-header {
+				text-align: center;
+				margin: 0 auto 40px;
+				padding: 25px;
+				background: linear-gradient(#E6834C, #7362EA);
+				color: white;
+				border-radius: 15px;
+				box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+			}
+			
+			.theme-title {
+				font-size: 20px;
+				font-weight: 400;
+				opacity: 0.9;
+				margin-bottom: 20px;
+			}
+			
+			.chapter-title {
+				margin: 12px 0;
+				font-size: 2em;
+				font-weight: 700;
+				line-height: 1.2;
+			}
+			
+			.chapter-number {
+				font-size: 20px;
+				font-weight: 500;
+				opacity: 0.9;
+				margin-top: 2px;
+			}
+			
+			/* Sections */
+			.section {
+				max-width: 1200px;
+				width: 100%;
+				margin: 0 auto var(--spacing-xl);
+				border-radius: var(--radius-lg);
+				overflow: hidden;
+				box-shadow: var(--shadow-md);
+			}
+			
+			.section-header {
+				display: flex;
+				align-items: center;
+				gap: var(--spacing-sm);
+				padding: var(--spacing-md) var(--spacing-lg);
+				font-size: 1.3em;
+				font-weight: 700;
+				color: var(--text-light);
+			}
+			
+			.section-badge {
+				background: rgba(255,255,255,0.25);
+				border: 2px solid rgba(255,255,255,0.35);
+				border-radius: 50%;
+				width: 28px;
+				height: 28px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-weight: 700;
+				font-size: 14px;
+			}
+			
+			.cards-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: var(--spacing-lg);
+				padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg);
+			}
+			
+			.card {
+				background: var(--bg-white);
+				border-radius: var(--radius-md);
+				padding: var(--spacing-lg) var(--spacing-xl);
+				box-shadow: var(--shadow-sm);
+				border: 2px solid;
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+			}
+			
+			.card:hover {
+				transform: translateY(-4px);
+				box-shadow: 0 8px 32px rgba(108, 92, 231, 0.15);
+			}
+			
+			.list-styled {
+				list-style: none;
+				padding-left: 10px;
+				margin: 0;
+			}
+			
+			.list-styled li {
+				position: relative;
+				margin: var(--spacing-md) 0;
+				line-height: 1.5;
+				font-size: 0.95em;
+				padding-left: 35px;
+			}
+			
+			.list-styled li::before {
+				content: '●';
+				position: absolute;
+				left: 0;
+				top: 0;
+				font-size: 1em;
+			}
+			
+			/* Styles spécifiques par section */
+			.problematique {
+				background: linear-gradient(180deg, #f1efff, #e8e5ff);
+				border-left: 5px solid var(--primary);
+			}
+			
+			[data-theme="dark"] .problematique {
+				background: linear-gradient(180deg, #3a3650, #2f2d45);
+			}
+			
+			.problematique .section-header {
+				background: var(--gradient-primary);
+			}
+			
+			.problematique-content {
+				padding: var(--spacing-md) var(--spacing-lg);
+				border-left: 4px solid var(--primary);
+			}
+			
+			.problematique-highlight-box {
+				background: var(--bg-white);
+				border: 2px solid var(--primary);
+				border-radius: var(--radius-md);
+				padding: var(--spacing-md);
+				box-shadow: var(--shadow-md);
+			}
+			
+			.problematique-highlight-box h4 {
+				font-size: 1.1em;
+				margin: 0 0 var(--spacing-sm);
+				color: var(--primary);
+				font-weight: 600;
+				text-transform: uppercase;
+			}
+			
+			.problematique .list-styled li::before {
+				content: '►';
+				color: var(--primary);
+			}
+			
+			/* Plan */
+			.plan {
+				background: linear-gradient(180deg, #e6f3ff, #ddeeff);
+				border-left: 5px solid var(--secondary);
+			}
+			
+			[data-theme="dark"] .plan {
+				background: linear-gradient(180deg, #2e3950, #242945);
+			}
+			
+			.plan .section-header {
+				background: var(--gradient-secondary);
+			}
+			
+			.plan .card:nth-child(1) { border-color: #3b82f6; }
+			.plan .card:nth-child(2) { border-color: #27ae60; }
+			.plan .card:nth-child(3) { border-color: #8e44ad; }
+			.plan .card:nth-child(4) { border-color: #e74c3c; }
+			
+			.plan-card-header {
+				display: flex;
+				align-items: flex-start;
+				gap: var(--spacing-md);
+				margin-bottom: var(--spacing-sm);
+			}
+			
+			.plan-card-icon {
+				width: 28px;
+				height: 28px;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-weight: 800;
+				color: var(--text-light);
+				font-size: 1em;
+				box-shadow: var(--shadow-sm);
+				flex-shrink: 0;
+			}
+			
+			.plan .card:nth-child(1) .plan-card-icon { background: #3b82f6; }
+			.plan .card:nth-child(2) .plan-card-icon { background: #27ae60; }
+			.plan .card:nth-child(3) .plan-card-icon { background: #8e44ad; }
+			.plan .card:nth-child(4) .plan-card-icon { background: #e74c3c; }
+			
+			.plan .card:nth-child(1) h3 { color: #3b82f6; }
+			.plan .card:nth-child(2) h3 { color: #27ae60; }
+			.plan .card:nth-child(3) h3 { color: #8e44ad; }
+			.plan .card:nth-child(4) h3 { color: #e74c3c; }
+			
+			.plan-card-title {
+				font-size: 1.1em;
+				margin: 0;
+				line-height: 1.5;
+				font-weight: 600;
+				flex-grow: 1;
+			}
+			
+			/* Compétences */
+			.competences {
+				background: linear-gradient(180deg, #e6f6f0, #dff5ec);
+				border-left: 5px solid var(--success);
+			}
+			
+			[data-theme="dark"] .competences {
+				background: linear-gradient(180deg, #2e4f40, #243936);
+			}
+			
+			.competences .section-header {
+				background: var(--gradient-success);
+			}
+			
+			.competences .card {
+				border-color: var(--success);
+			}
+			
+			.competences-title {
+				font-weight: 600;
+				margin-bottom: var(--spacing-sm);
+				font-size: 1.1em;
+				color: var(--success);
+				text-transform: uppercase;
+			}
+			
+			[data-theme="dark"] .competences-title {
+				color: #6ee7b7;
+			}
+			
+			.competences .list-styled li::before {
+				color: var(--success);
+			}
+			
+			/* Vocabulaire */
+			.vocabulaire {
+				background: linear-gradient(180deg, #fef7ed, #fed7aa);
+				border-left: 5px solid var(--warning);
+			}
+			
+			[data-theme="dark"] .vocabulaire {
+				background: linear-gradient(180deg, #4d4230, #3d3628);
+			}
+			
+			.vocabulaire .section-header {
+				background: var(--gradient-warning);
+			}
+			
+			.vocabulaire .card {
+				border-color: var(--warning);
+			}
+			
+			.vocabulaire .list-styled li::before {
+				color: var(--warning);
+			}
+			
+			.vocab-term {
+				font-weight: 700;
+				color: var(--warning);
+				text-transform: uppercase;
+				display: inline;
+				margin-right: 8px;
+			}
+			
+			.vocab-definition {
+				font-weight: 400;
+				color: var(--text-dark);
+				text-transform: none;
+				display: inline;
+			}
+			
+			[data-theme="dark"] .vocab-term {
+				color: #fbbf24;
+			}
+			
+			[data-theme="dark"] .vocab-definition {
+				color: #ffffff;
+			}
+			
+			/* Catégories de vocabulaire */
+			.vocab-category-title {
+				font-weight: 700;
+				color: var(--warning);
+				font-size: 1.1em;
+				margin-bottom: var(--spacing-sm);
+				text-transform: uppercase;
+				text-align: center;
+				padding-bottom: 8px;
+			}
+			
+			[data-theme="dark"] .vocab-category-title {
+				color: #fbbf24;
+			}
+			
+			.vocabulaire .card:nth-child(1) { border-color: #3b82f6; }
+			.vocabulaire .card:nth-child(2) { border-color: #27ae60; }
+			.vocabulaire .card:nth-child(3) { border-color: #8e44ad; }
+			.vocabulaire .card:nth-child(4) { border-color: #e74c3c; }
+			.vocabulaire .card:nth-child(5) { border-color: #f39c12; }
+
+			.vocabulaire .card:nth-child(1) .vocab-category-title { color: #3b82f6; }
+			.vocabulaire .card:nth-child(2) .vocab-category-title { color: #27ae60; }
+			.vocabulaire .card:nth-child(3) .vocab-category-title { color: #8e44ad; }
+			.vocabulaire .card:nth-child(4) .vocab-category-title { color: #e74c3c; }
+			.vocabulaire .card:nth-child(5) .vocab-category-title { color: #f39c12; }
+
+			.vocabulaire .card:nth-child(1) .vocab-term { color: #3b82f6; }
+			.vocabulaire .card:nth-child(2) .vocab-term { color: #27ae60; }
+			.vocabulaire .card:nth-child(3) .vocab-term { color: #8e44ad; }
+			.vocabulaire .card:nth-child(4) .vocab-term { color: #e74c3c; }
+			.vocabulaire .card:nth-child(5) .vocab-term { color: #f39c12; }
+
+			.vocabulaire .card:nth-child(1) .list-styled li::before { color: #3b82f6; }
+			.vocabulaire .card:nth-child(2) .list-styled li::before { color: #27ae60; }
+			.vocabulaire .card:nth-child(3) .list-styled li::before { color: #8e44ad; }
+			.vocabulaire .card:nth-child(4) .list-styled li::before { color: #e74c3c; }
+			.vocabulaire .card:nth-child(5) .list-styled li::before { color: #f39c12; }
+
+			/* Onglets vocabulaire — pilules */
+			.vocab-tabs {
+				display: flex;
+				gap: 10px;
+				padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-sm);
+				background: transparent;
+			}
+
+			.vocab-tab-btn {
+				padding: 10px 28px;
+				border: none;
+				border-radius: 999px;
+				background: rgba(245, 158, 11, 0.18);
+				color: var(--warning);
+				font-weight: 600;
+				font-size: 0.92em;
+				cursor: pointer;
+				transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.15s ease;
+				font-family: 'Roboto', Arial, sans-serif;
+				letter-spacing: 0.02em;
+				box-shadow: 0 2px 6px rgba(245, 158, 11, 0.15);
+			}
+
+			.vocab-tab-btn:hover:not(.active) {
+				background: rgba(245, 158, 11, 0.30);
+				box-shadow: 0 3px 10px rgba(245, 158, 11, 0.25);
+				transform: translateY(-1px);
+			}
+
+			.vocab-tab-btn.active {
+				background: var(--gradient-warning);
+				color: white;
+				box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
+				transform: translateY(-1px);
+			}
+
+			[data-theme="dark"] .vocab-tab-btn {
+				background: rgba(251, 191, 36, 0.18);
+				color: #fbbf24;
+				box-shadow: 0 2px 6px rgba(251, 191, 36, 0.12);
+			}
+
+			[data-theme="dark"] .vocab-tab-btn:hover:not(.active) {
+				background: rgba(251, 191, 36, 0.30);
+				box-shadow: 0 3px 10px rgba(251, 191, 36, 0.22);
+			}
+
+			[data-theme="dark"] .vocab-tab-btn.active {
+				background: linear-gradient(100deg, #f59e0b, #fbbf24);
+				color: #1e293b;
+				box-shadow: 0 4px 14px rgba(251, 191, 36, 0.35);
+			}
+
+			.vocab-tab-content {
+				display: none;
+			}
+
+			.vocab-tab-content.active {
+				display: block;
+			}
+
+			/* Couleurs cartes vocab par parties (identiques au plan) */
+			#vocab-parties-grid .card:nth-child(1) { border-color: #3b82f6; }
+			#vocab-parties-grid .card:nth-child(2) { border-color: #27ae60; }
+			#vocab-parties-grid .card:nth-child(3) { border-color: #8e44ad; }
+			#vocab-parties-grid .card:nth-child(4) { border-color: #e74c3c; }
+
+			#vocab-parties-grid .card:nth-child(1) .vocab-category-title { color: #3b82f6; }
+			#vocab-parties-grid .card:nth-child(2) .vocab-category-title { color: #27ae60; }
+			#vocab-parties-grid .card:nth-child(3) .vocab-category-title { color: #8e44ad; }
+			#vocab-parties-grid .card:nth-child(4) .vocab-category-title { color: #e74c3c; }
+
+			#vocab-parties-grid .card:nth-child(1) .vocab-term { color: #3b82f6; }
+			#vocab-parties-grid .card:nth-child(2) .vocab-term { color: #27ae60; }
+			#vocab-parties-grid .card:nth-child(3) .vocab-term { color: #8e44ad; }
+			#vocab-parties-grid .card:nth-child(4) .vocab-term { color: #e74c3c; }
+
+			#vocab-parties-grid .card:nth-child(1) .list-styled li::before { color: #3b82f6; }
+			#vocab-parties-grid .card:nth-child(2) .list-styled li::before { color: #27ae60; }
+			#vocab-parties-grid .card:nth-child(3) .list-styled li::before { color: #8e44ad; }
+			#vocab-parties-grid .card:nth-child(4) .list-styled li::before { color: #e74c3c; }
+
+			/* Dates */
+			.dates {
+				background: linear-gradient(180deg, #ffe8e8, #ffd6d6);
+				border-left: 5px solid var(--danger);
+			}
+			
+			[data-theme="dark"] .dates {
+				background: linear-gradient(180deg, #4d3030, #3d2828);
+			}
+			
+			.dates .section-header {
+				background: var(--gradient-danger);
+			}
+			
+			.dates-content {
+				padding: var(--spacing-md) var(--spacing-lg);
+			}
+			
+			.dates-highlight-box {
+				background: var(--bg-white);
+				border: 2px solid var(--danger);
+				border-radius: var(--radius-md);
+				padding: var(--spacing-md);
+				margin-bottom: var(--spacing-md);
+				box-shadow: var(--shadow-md);
+			}
+			
+			.dates-highlight-box h4 {
+				font-size: 1.1em;
+				margin: 0 0 var(--spacing-sm);
+				color: var(--danger);
+				font-weight: 600;
+				text-transform: uppercase;
+			}
+			
+			.dates .list-styled li {
+				display: flex;
+				align-items: flex-start;
+				gap: var(--spacing-sm);
+				margin: var(--spacing-sm) 0;
+				padding-left: 0;
+			}
+			
+			.dates .list-styled li::before {
+				content: none;
+			}
+			
+			.date-major {
+				font-weight: 700;
+				color: var(--danger);
+				width: 110px;
+				min-width: 110px;
+				flex-shrink: 0;
+			}
+			
+			.date-event {
+				color: var(--text-dark);
+				line-height: 1.4;
+			}
+			
+			/* Personnages */
+			.personnages {
+				background: linear-gradient(180deg, #ffe6f0, #ffcce0);
+				border-left: 5px solid var(--info);
+			}
+			
+			[data-theme="dark"] .personnages {
+				background: linear-gradient(180deg, #4d3040, #3d2836);
+			}
+			
+			.personnages .section-header {
+				background: var(--gradient-info);
+			}
+			
+			.personnages .card {
+				border-color: var(--info);
+			}
+			
+			.personnages-title {
+				font-weight: 600;
+				margin-bottom: var(--spacing-sm);
+				font-size: 1.1em;
+				color: var(--info);
+				text-transform: uppercase;
+			}
+			
+			[data-theme="dark"] .personnages-title {
+				color: #f472b6;
+			}
+			
+			.personnages-dates {
+				font-style: italic;
+				color: #5a6571;
+				margin-bottom: 8px;
+				font-size: 0.9em;
+			}
+			
+			[data-theme="dark"] .personnages-dates {
+				color: #b8b8b8;
+			}
+			
+			/* Carte */
+			.carte {
+				background: linear-gradient(180deg, #e8eaf6, #c5cae9);
+				border-left: 5px solid var(--purple);
+			}
+			
+			[data-theme="dark"] .carte {
+				background: linear-gradient(180deg, #24263E, #1e2035);
+			}
+			
+			.carte .section-header {
+				background: var(--gradient-carte);
+			}
+			
+			.carte-content {
+				padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg);
+			}
+			
+			.carte-content h4 {
+				color: var(--purple);
+				font-size: 1.2em;
+				margin-bottom: var(--spacing-md);
+				font-weight: 600;
+			}
+			
+			.carte-map-placeholder {
+				background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+				border: 2px dashed var(--purple);
+				border-radius: var(--radius-md);
+				padding: var(--spacing-xl);
+				text-align: center;
+				margin: var(--spacing-lg) 0;
+			}
+			
+			[data-theme="dark"] .carte-map-placeholder {
+				background: linear-gradient(135deg, #3a3a3a, #2a2a2a);
+			}
+			
+			.carte-map-icon {
+				font-size: 3em;
+				margin-bottom: var(--spacing-sm);
+				opacity: 0.8;
+			}
+			
+			.carte-legend-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 14px;
+				margin-top: 20px;
+			}
+			
+			.carte-legend-item {
+				display: flex;
+				align-items: center;
+				gap: 14px;
+				font-size: 0.9em;
+				padding: 14px;
+				background: var(--bg-white);
+				border: 1px solid #e9ecef;
+				border-radius: 8px;
+			}
+			
+			[data-theme="dark"] .carte-legend-item {
+				border-color: #444444;
+			}
+			
+			.carte-legend-color {
+				width: 24px;
+				height: 24px;
+				border-radius: 4px;
+				flex-shrink: 0;
+				border: 1px solid rgba(0,0,0,0.1);
+			}
+			
+			/* Bilan */
+			.bilan {
+				background: linear-gradient(180deg, #eceff1, #cfd8dc);
+				border-left: 5px solid var(--bilan);
+			}
+			
+			[data-theme="dark"] .bilan {
+				background: linear-gradient(180deg, #3a3d40, #2f3235);
+			}
+			
+			.bilan .section-header {
+				background: var(--gradient-bilan);
+			}
+			
+			.bilan-content {
+				padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg);
+			}
+			
+			.bilan-highlight-box {
+				background: var(--bg-white);
+				border: 2px solid var(--bilan);
+				border-radius: var(--radius-md);
+				padding: var(--spacing-md);
+				margin-top: var(--spacing-lg);
+				box-shadow: var(--shadow-sm);
+			}
+			
+			.bilan-highlight-box h4 {
+				margin: 0 0 var(--spacing-sm) 0;
+				color: var(--bilan);
+				font-weight: 600;
+				font-size: 1em;
+			}
+			
+			.bilan-highlight-box h5 {
+				margin: var(--spacing-md) 0 var(--spacing-sm) 0;
+				color: var(--bilan);
+				font-weight: 600;
+				font-size: 1em;
+				text-transform: uppercase;
+			}
+			
+			/* Carte mentale */
+			.carte-mentale {
+				background: linear-gradient(180deg, #fefce8, #fef3c7);
+				border-left: 5px solid #E9AC16;
+			}
+			
+			[data-theme="dark"] .carte-mentale {
+				background: linear-gradient(180deg, #453f2e, #3a341f);
+			}
+			
+			.carte-mentale .section-header {
+				background: var(--gradient-carte-mentale);
+			}
+			
+			.carte-mentale-content {
+				padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg);
+			}
+			
+			.carte-mentale-content h4 {
+				color: #E9AC16;
+				font-size: 1.2em;
+				margin-bottom: var(--spacing-md);
+				font-weight: 600;
+			}
+			
+			.carte-mentale-placeholder {
+				background: linear-gradient(135deg, #fefce8, #fef3c7);
+				border: 2px dashed #E9AC16;
+				border-radius: var(--radius-md);
+				padding: var(--spacing-xl);
+				text-align: center;
+				margin: var(--spacing-lg) 0;
+				min-height: 200px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+			
+			[data-theme="dark"] .carte-mentale-placeholder {
+				background: linear-gradient(135deg, #3a3a3a, #2a2a2a);
+			}
+			
+			.carte-mentale-icon {
+				font-size: 3em;
+				margin-bottom: var(--spacing-sm);
+				opacity: 0.8;
+				color: #E9AC16;
+			}
+			
+			.carte-mentale-subtitle {
+				color: #ca8a04;
+				font-style: italic;
+				margin-top: var(--spacing-sm);
+				font-size: 0.9em;
+			}
+			
+			[data-theme="dark"] .carte-mentale-subtitle {
+				color: #fbbf24;
+			}
+			
+			.carte-mentale-concepts {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+				gap: var(--spacing-md);
+				margin-top: var(--spacing-lg);
+			}
+			
+			.concept-item {
+				background: var(--bg-white);
+				padding: var(--spacing-md);
+				border-radius: var(--radius-md);
+				border-left: 4px solid #E9AC16;
+				box-shadow: var(--shadow-sm);
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+			}
+			
+			.concept-item:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 8px 32px rgba(233, 172, 22, 0.15);
+			}
+			
+			.concept-title {
+				font-weight: 600;
+				color: #E9AC16;
+				margin-bottom: var(--spacing-sm);
+				font-size: 0.9em;
+				text-transform: uppercase;
+			}
+			
+			[data-theme="dark"] .concept-title {
+				color: #fbbf24;
+			}
+			
+			.concept-description {
+				font-size: 0.85em;
+				color: var(--text-muted);
+				line-height: 1.4;
+			}
+			
+			[data-theme="dark"] .concept-description {
+				color: #b0b0b0;
+			}
+			
+			/* Responsive */
+			@media (max-width: 768px) {
+				.content {
+					padding: var(--spacing-md);
+					margin: 15px;
+				}
+				
+				.cards-grid {
+					grid-template-columns: 1fr;
+					gap: var(--spacing-md);
+				}
+				
+				.card {
+					padding: var(--spacing-md) var(--spacing-lg);
+				}
+				
+				.section-header {
+					font-size: 1.1em;
+					padding: var(--spacing-sm) var(--spacing-md);
+				}
+				
+				.chapter-title {
+					font-size: 1.5em;
+				}
+			}
+			
+			@media (max-width: 480px) {
+				body { padding-top: 70px; }
+				
+				.toolbar {
+					height: 70px;
+					padding: 8px 12px;
+					gap: 8px;
+				}
+				
+				.toolbar-btn {
+					padding: 8px 12px;
+					font-size: 12px;
+				}
+				
+				.content {
+					margin: 10px;
+					padding: 15px;
+				}
+			}
+			
+			/* =====================================================
+			   IMPRESSION — version optimisée
+			   Fonds blancs, encre minimale, pagination propre
+			   ===================================================== */
+			@media print {
+
+				/* Masquer les éléments inutiles */
+				.toolbar,
+				.vocab-tabs { display: none !important; }
+
+				/* Forcer les deux onglets vocab visibles */
+				.vocab-tab-content { display: block !important; }
+				#vocab-tab-parties { margin-top: 12pt; }
+
+				/* Reset global */
+				*, *::before, *::after {
+					-webkit-print-color-adjust: exact;
+					print-color-adjust: exact;
+					box-shadow: none !important;
+					text-shadow: none !important;
+				}
+
+				body {
+					background: white !important;
+					color: #000 !important;
+					padding-top: 0 !important;
+					font-size: 10pt !important;
+					font-family: 'Georgia', serif !important;
+					margin: 0 !important;
+				}
+
+				.content {
+					max-width: 100% !important;
+					margin: 0 !important;
+					padding: 0 !important;
+				}
+
+				/* En-tête : dégradé conservé mais allégé */
+				.chapter-header {
+					background: #f0f0f0 !important;
+					color: #000 !important;
+					border: 1.5pt solid #999 !important;
+					border-radius: 6pt !important;
+					padding: 12pt !important;
+					margin-bottom: 14pt !important;
+					page-break-after: avoid;
+				}
+
+				.theme-title { color: #333 !important; }
+				.chapter-number { color: #555 !important; }
+
+				/* Sections : fonds blancs, bordure gauche fine colorée conservée */
+				.section {
+					background: white !important;
+					border-left-width: 3pt !important;
+					border-radius: 0 !important;
+					margin-bottom: 14pt !important;
+					padding: 0 !important;
+					page-break-inside: avoid;
+				}
+
+				/* Forcer les couleurs de bordure des sections à s'imprimer */
+				.problematique { border-left-color: var(--primary) !important; }
+				.plan          { border-left-color: var(--success) !important; }
+				.competences   { border-left-color: var(--info) !important; }
+				.vocabulaire   { border-left-color: var(--warning) !important; }
+				.dates         { border-left-color: var(--danger) !important; }
+				.personnages   { border-left-color: var(--secondary) !important; }
+				.bilan         { border-left-color: var(--primary) !important; }
+
+				/* En-têtes de section */
+				.section-header {
+					background: #e8e8e8 !important;
+					color: #000 !important;
+					font-size: 11pt !important;
+					padding: 5pt 10pt !important;
+					border-radius: 0 !important;
+					page-break-after: avoid;
+				}
+
+				.section-badge {
+					background: #555 !important;
+					color: white !important;
+				}
+
+				/* Cartes */
+				.card {
+					background: white !important;
+					border: 0.75pt solid #ccc !important;
+					border-radius: 4pt !important;
+					padding: 8pt 10pt !important;
+					page-break-inside: avoid;
+				}
+
+				/* Grille : 2 colonnes en print */
+				.cards-grid {
+					display: grid !important;
+					grid-template-columns: 1fr 1fr !important;
+					gap: 8pt !important;
+				}
+
+				/* Titres dans les cartes */
+				.plan-card-icon {
+					background: #555 !important;
+					color: white !important;
+				}
+
+				.vocab-category-title,
+				.competences-title,
+				.personnages-title {
+					color: #000 !important;
+					border-bottom: 0.5pt solid #ccc;
+					padding-bottom: 3pt;
+					margin-bottom: 5pt;
+				}
+
+				.vocab-term { color: #000 !important; font-weight: 700 !important; }
+				.vocab-definition { color: #333 !important; }
+				.date-major { color: #000 !important; font-weight: 700 !important; }
+				.date-event { color: #333 !important; }
+				.personnages-dates { color: #555 !important; }
+
+				/* Dates clés */
+				.dates-highlight-box {
+					background: #f5f5f5 !important;
+					border: 0.5pt solid #ccc !important;
+					border-radius: 3pt !important;
+					page-break-inside: avoid;
+				}
+
+				/* Problématique */
+				.problematique-highlight-box {
+					background: #f5f5f5 !important;
+					border: 0.5pt solid #ccc !important;
+				}
+
+				/* Bilan */
+				.bilan-aspect {
+					background: #f5f5f5 !important;
+					border: 0.5pt solid #ccc !important;
+					page-break-inside: avoid;
+				}
+
+				/* Images carte / carte mentale */
+				.carte-image,
+				.carte-mentale-image {
+					max-width: 100% !important;
+					page-break-inside: avoid;
+				}
+
+				/* Pagination */
+				.section.plan,
+				.section.personnages,
+				.section.carte,
+				.section.bilan,
+				.section.carte-mentale {
+					page-break-before: auto;
+				}
+
+				/* Listes */
+				.list-styled li::before { color: #555 !important; }
+
+				/* Supprimer les animations */
+				* { transition: none !important; animation: none !important; }
+			}
+			
+			/* Notification simple */
+			.notification {
+				position: fixed;
+				top: 20px;
+				right: 20px;
+				z-index: 10000;
+				background: #74b9ff;
+				color: white;
+				padding: 15px 20px;
+				border-radius: 10px;
+				box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+				animation: slideIn 0.3s ease-out;
+			}
+			
+			.notification.success { background: #00b894; }
+			.notification.error { background: #d63031; }
+			
+			@keyframes slideIn {
+				from { opacity: 0; transform: translateX(300px); }
+				to { opacity: 1; transform: translateX(0); }
+			}
+		
+			/* =====================================================
+			   DATES — Cartes par période
+			   ===================================================== */
+			.dates-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+				gap: var(--spacing-lg);
+				padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg);
+			}
+			.dates-period-card {
+				background: var(--bg-white);
+				border-radius: var(--radius-md);
+				overflow: hidden;
+				box-shadow: var(--shadow-sm);
+				border: 2px solid;
+			}
+			.dates-period-header {
+				padding: 10px 16px;
+				font-weight: 700;
+				font-size: 0.82em;
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+				color: white;
+			}
+			.dates-period-body {
+				padding: 12px 16px;
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+			}
+			.dates-row {
+				display: flex;
+				gap: 12px;
+				align-items: baseline;
+			}
+			.dates-row .date-major {
+				font-weight: 700;
+				font-size: 0.88em;
+				min-width: 88px;
+				flex-shrink: 0;
+			}
+			.dates-row .date-event {
+				font-size: 0.88em;
+				line-height: 1.4;
+				color: var(--text-dark);
+			}
+</style>
+	</head>
+	
+	<body>
+		<!-- Toolbar -->
+		<div class="toolbar">
+			<button class="toolbar-btn btn-theme" onclick="toggleTheme()" aria-label="Basculer le thème sombre/clair">🌙 Sombre</button>
+			<button class="toolbar-btn btn-font" onclick="changeFontSize()" aria-label="Changer la taille de police">🔠 Taille</button>
+			<button class="toolbar-btn btn-print" onclick="window.print()" aria-label="Imprimer la fiche">🖨️ Imprimer</button>
+		</div>
+		
+		<!-- Contenu principal -->
+		<div class="content">
+			<!-- EN-TÊTE -->
+			<header class="chapter-header">
+				<div class="theme-title">HISTOIRE 4ᵉ — Thème 1 — Le XVIIIe siècle : expansions, Lumières et révolutions</div>
+				<div class="chapter-number">CHAPITRE 3</div>
+				<h1 class="chapter-title">LA RÉVOLUTION FRANÇAISE ET L'EMPIRE</h1>
+			</header>
+			
+			<!-- PROBLÉMATIQUE -->
+			<div id="s-problematique"></div>
+			<section class="section problematique">
+				<div class="section-header">
+					<div class="section-badge">1</div>
+					<span>💡 PROBLÉMATIQUE</span>
+				</div>
+				<div class="problematique-content">
+					<div class="problematique-highlight-box">
+						<h4>🤔 QUESTION CENTRALE DU CHAPITRE</h4>
+						<ul class="list-styled">
+							<li><p><em><strong>En quoi la Révolution française (1789-1799) constitue-t-elle une rupture radicale avec l'Ancien Régime ?</strong></em></p></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			
+			<!-- PLAN -->
+			<div id="s-plan"></div>
+			<section class="section plan">
+				<div class="section-header">
+					<div class="section-badge">2</div>
+					<span>📋 PLAN DU CHAPITRE</span>
+				</div>
+				<div class="cards-grid" id="plan-cards-grid">
+					<!-- Généré dynamiquement par JS selon NB_PARTIES -->
+				</div>
+			</section>
+			
+			<!-- COMPÉTENCES -->
+			<div id="s-competences"></div>
+			<section class="section competences">
+				<div class="section-header">
+					<div class="section-badge">3</div>
+					<span>🎯 COMPÉTENCES</span>
+				</div>
+				<div class="cards-grid" id="competences-grid">
+					<!-- Généré dynamiquement par JS via COMPETENCES -->
+				</div>
+			</section>
+			
+			<!-- VOCABULAIRE -->
+			<div id="s-vocabulaire"></div>
+			<section class="section vocabulaire">
+				<div class="section-header">
+					<div class="section-badge">4</div>
+					<span>📚 VOCABULAIRE</span>
+				</div>
+
+				<!-- Onglets -->
+				<div class="vocab-tabs">
+					<button class="vocab-tab-btn active" onclick="switchVocabTab('thematique', this)">🗂️ Par thème</button>
+					<button class="vocab-tab-btn" onclick="switchVocabTab('parties', this)">📋 Par partie</button>
+				</div>
+
+				<!-- Onglet 1 : Par thème (thématique puis alphabétique) -->
+				<div id="vocab-tab-thematique" class="vocab-tab-content active">
+					<div class="cards-grid" id="vocab-thematique-grid">
+						<!-- Généré dynamiquement par JS via VOCAB_THEMATIQUE -->
+					</div>
+				</div>
+
+				<!-- Onglet 2 : Par partie (ordre d'apparition dans le PDF) -->
+				<div id="vocab-tab-parties" class="vocab-tab-content">
+					<div class="cards-grid" id="vocab-parties-grid">
+						<!-- Généré dynamiquement par JS via VOCAB_PAR_PARTIES et NB_PARTIES -->
+					</div>
+				</div>
+			</section>
+			
+			<!-- DATES CLÉS -->
+			<div id="s-dates"></div>
+			<section class="section dates">
+				<div class="section-header">
+					<div class="section-badge">5</div>
+					<span>📅 DATES CLÉS</span>
+				</div>
+				<div class="dates-content" id="dates-content">
+					<!-- Généré dynamiquement par JS via DATES -->
+				</div>
+			</section>
+			
+			<!-- PERSONNAGES -->
+			<div id="s-personnages"></div>
+			<section class="section personnages">
+				<div class="section-header">
+					<div class="section-badge">6</div>
+					<span>👑 PERSONNAGES HISTORIQUES</span>
+				</div>
+				<div class="cards-grid" id="personnages-grid">
+					<!-- Généré dynamiquement par JS via PERSONNAGES -->
+				</div>
+			</section>
+			
+			<!-- CARTE -->
+			<div id="s-carte"></div>
+			<section class="section carte">
+				<div class="section-header">
+					<div class="section-badge">7</div>
+					<span>🗺️ CARTE DE SYNTHÈSE</span>
+				</div>
+				<div class="carte-content">
+					<h4>La France révolutionnaire et les guerres de coalition (1789-1799)</h4>
+					<div class="carte-map-placeholder">
+						<img src="" alt="Carte à insérer" style="max-width: 100%; height: auto; border-radius: 8px; display: block; margin: 0 auto;">
+					</div>
+					<p><strong>Source :</strong> Gallica (BnF) — <em>Atlas de la Révolution française</em>, ed. EHESS</p>
+				</div>
+			</section>
+			
+			<!-- BILAN -->
+			<div id="s-bilan"></div>
+			<section class="section bilan">
+				<div class="section-header">
+					<div class="section-badge">8</div>
+					<span>📝 BILAN</span>
+				</div>
+				<div class="bilan-content">
+					<div class="bilan-highlight-box">
+						<h4>Synthèse générale</h4>
+						<div id="bilan-aspects">
+							<!-- Généré dynamiquement par JS selon NB_PARTIES -->
+						</div>
+					</div>
+				</div>
+			</section>
+			
+			<!-- CARTE MENTALE -->
+			<div id="s-carte-mentale"></div>
+			<section class="section carte-mentale">
+				<div class="section-header">
+					<div class="section-badge">9</div>
+					<span>🧠 CARTE MENTALE</span>
+				</div>
+				<div class="carte-mentale-content">
+					<h4>LA RÉVOLUTION FRANÇAISE ET L'EMPIRE — carte mentale</h4>
+					<div class="carte-mentale-placeholder">
+						<img src="" alt="Carte mentale à insérer" style="max-width: 100%; height: auto; border-radius: 8px; display: block; margin: 0 auto;">
+					</div>
+					<p><strong>Source :</strong> </p>
+				</div>
+			</section>
+		</div>
+		
+		<script>
+			// =========================================================
+			// PARAMÈTRE PRINCIPAL — à modifier selon le cours
+			// Valeurs possibles : 2, 3 ou 4
+			// =========================================================
+			const NB_PARTIES = 3;
+			// =========================================================
+
+			// Données des parties (à remplir lors du fichage)
+			// Claude remplit ce tableau en analysant le PDF du cours
+			const PARTIES = [
+				{
+					roman: "I",
+					titre: "Une monarchie en crise (1774-1789)",
+					description: "La France de Louis XVI est frappée par une triple crise : financière (déficit budgétaire abyssal, noblesse refusant l'impôt), alimentaire (mauvaises récoltes, famine, émeutes du pain) et politique (blocage des réformes, convocation forcée des États généraux en 1789).",
+					bilan_titre: "LES CAUSES DE LA RÉVOLUTION",
+					bilan_texte: "La Révolution française n'est pas un événement spontané. Elle résulte d'une accumulation de crises : un État en quasi-faillite (4 milliards de livres de dettes en 1789), une population affamée par les mauvaises récoltes de 1787-1788, et un blocage politique total — la noblesse et le clergé refusant de contribuer à l'effort fiscal. Ces crises convergent en 1789, forçant Louis XVI à convoquer les États généraux pour la première fois depuis 1614."
+				},
+				{
+					roman: "II",
+					titre: "La rupture avec l'Ancien Régime (1789-1791)",
+					description: "En quelques mois, la France bascule : le Tiers État se proclame Assemblée nationale, la Bastille est prise (14 juillet), les privilèges sont abolis (4 août), la DDHC est votée (26 août) et la monarchie constitutionnelle est instaurée par la Constitution du 3 septembre 1791.",
+					bilan_titre: "LES ACQUIS RÉVOLUTIONNAIRES DE 1789",
+					bilan_texte: "L'année 1789 est l'année fondatrice. Elle voit l'affirmation de la souveraineté nationale contre la souveraineté royale, la naissance du principe d'égalité des droits (abolition des privilèges, DDHC), et la mise en place d'un gouvernement fondé sur la séparation des pouvoirs. La monarchie constitutionnelle tente de concilier roi et nation, mais Louis XVI accepte la constitution à contrecœur, sa tentative de fuite à Varennes (juin 1791) ayant définitivement fragilisé sa légitimité."
+				},
+				{
+					roman: "III",
+					titre: "Fin de la monarchie et Première République (1791-1799)",
+					description: "La guerre contre les monarchies européennes (1792), la prise des Tuileries (10 août 1792) et l'exécution de Louis XVI (21 janvier 1793) plongent la France dans la Terreur sous Robespierre. Sa chute (28 juillet 1794) ouvre la voie au Directoire (1795-1799), régime instable renversé par Bonaparte.",
+					bilan_titre: "DE LA TERREUR AU DIRECTOIRE",
+					bilan_texte: "La radicalisation révolutionnaire débouche sur la Terreur (1793-1794) : face aux menaces extérieures (coalitions) et intérieures (Vendée, contre-révolution), le Comité de salut public, dominé par Robespierre, instaure un régime d'exception — levée en masse, loi des suspects, ~40 000 morts. Après Thermidor (juillet 1794), le Directoire tente une stabilisation mais reste contesté et corrompu. Le coup d'État du 18 Brumaire (9 novembre 1799) met fin à la Révolution et ouvre l'ère napoléonienne."
+				}
+			];
+
+			// Couleurs par partie (cohérentes avec le CSS existant)
+			const PLAN_COLORS = ['#3b82f6', '#27ae60', '#8e44ad', '#e74c3c'];
+
+			// =========================================================
+			// DONNÉES VOCABULAIRE — à remplir lors du fichage
+			// =========================================================
+
+			// Onglet 1 : par thème (ordre thématique puis alphabétique au sein de chaque thème)
+			const VOCAB_THEMATIQUE = [
+				{
+					emoji: "💰",
+					categorie: "Crise de l'Ancien Régime",
+					termes: [
+						{ terme: "Déficit budgétaire", definition: "Situation où les dépenses de l'État dépassent ses recettes." },
+						{ terme: "Cahier de doléances", definition: "Document rédigé par chaque ordre en 1789 pour lister les revendications souhaitées." },
+						{ terme: "Impôt", definition: "Somme d'argent prélevée obligatoirement par l'État sur les habitants pour financer ses dépenses." },
+						{ terme: "Privilèges", definition: "Avantages accordés à la noblesse et au clergé sous l'Ancien Régime : exemptions d'impôts, accès aux hautes fonctions. Abolis dans la nuit du 4 août 1789." },
+						{ terme: "Tiers État", definition: "Troisième ordre de la société d'Ancien Régime regroupant tous ceux qui ne sont ni nobles ni clercs, soit 97 % de la population (paysans, artisans, bourgeois)." }
+					]
+				},
+				{
+					emoji: "🏛️",
+					categorie: "Institutions et pouvoir",
+					termes: [
+						{ terme: "États généraux", definition: "Assemblée des trois ordres, convoquée par le roi pour voter l'impôt. Non réunie depuis 1614." },
+						{ terme: "Assemblée nationale", definition: "Nom donné le 17 juin 1789 par les députés du Tiers État à leur assemblée, affirmant représenter 96 % de la nation française." },
+						{ terme: "Comité de salut public", definition: "Comité de 9 à 12 membres créé en avril 1793 pour gouverner et défendre la République face à ses ennemis." }
+					]
+				},
+				{
+					emoji: "⚖️",
+					categorie: "Droits et libertés",
+					termes: [
+						{ terme: "Constitution", definition: "Texte fondamental définissant l'organisation des pouvoirs au sein d'un État." },
+						{ terme: "DDHC", definition: "Déclaration des droits de l'homme et du citoyen, votée le 26 août 1789." },
+						{ terme: "Souveraineté nationale", definition: "Principe selon lequel le pouvoir appartient à la nation et non au roi. Fondement de la Révolution française, consacré par la DDHC (1789)." },
+						{ terme: "Suffrage censitaire", definition: "Droit de vote réservé aux citoyens payant un certain niveau d'impôts (citoyens actifs)." }
+					]
+				},
+				{
+					emoji: "⚔️",
+					categorie: "Conflits et violence",
+					termes: [
+						{ terme: "Grande Peur", definition: "Mouvement de panique collective dans les campagnes françaises (juillet 1789) donnant lieu au pillage de châteaux." },
+						{ terme: "Sans-culottes", definition: "Habitants pauvres des villes (artisans, ouvriers) qui portaient des pantalons longs et non des culottes courtes des nobles." },
+						{ terme: "Terreur", definition: "Période de gouvernement révolutionnaire (1793-1794) caractérisée par la violente répression des opposants à la Révolution française." },
+						{ terme: "Coalition", definition: "Alliance de monarchies européennes contre la France révolutionnaire." },
+						{ terme: "Contre-révolution", definition: "Mouvement visant à renverser la Révolution et à restaurer l'Ancien Régime : nobles émigrés, insurrection vendéenne, soutien des monarchies étrangères." },
+						{ terme: "Girondins", definition: "Groupe de députés modérés à la Convention (1792-1793), favorables à une stabilisation de la Révolution. Arrêtés et exécutés par les Montagnards en juin 1793." },
+						{ terme: "Montagnards", definition: "Groupe de députés radicaux à la Convention, menés par Robespierre. Ils veulent pousser la Révolution jusqu'au bout et s'emparent du pouvoir en juin 1793." }
+					]
+				},
+				{
+					emoji: "🏛️",
+					categorie: "Régimes politiques",
+					termes: [
+						{ terme: "Monarchie constitutionnelle", definition: "Régime de la Constitution du 3 septembre 1791 : le roi règne mais son pouvoir est limité." },
+						{ terme: "République", definition: "Régime politique dans lequel le pouvoir est exercé par des représentants élus par le peuple, et en l'absence de roi." },
+						{ terme: "Directoire", definition: "Régime républicain (1795-1799) gouverné par 5 Directeurs, renversé par Bonaparte." }
+					]
+				}
+			];
+
+			// Onglet 2 : par partie (ordre d'apparition dans le PDF — calé sur NB_PARTIES)
+			const VOCAB_PAR_PARTIES = [
+				{
+					termes: [
+						{ terme: "Déficit budgétaire", definition: "Situation où les dépenses de l'État dépassent ses recettes." },
+						{ terme: "Cahier de doléances", definition: "Document rédigé par chaque ordre en 1789 pour lister les revendications souhaitées." },
+						{ terme: "Impôt", definition: "Somme d'argent prélevée obligatoirement par l'État sur les habitants pour financer ses dépenses." },
+						{ terme: "Privilèges", definition: "Avantages accordés à la noblesse et au clergé sous l'Ancien Régime : exemptions d'impôts, accès aux hautes fonctions. Abolis dans la nuit du 4 août 1789." },
+						{ terme: "Tiers État", definition: "Troisième ordre de la société d'Ancien Régime regroupant tous ceux qui ne sont ni nobles ni clercs, soit 97 % de la population (paysans, artisans, bourgeois)." },
+						{ terme: "États généraux", definition: "Assemblée des trois ordres, convoquée par le roi pour voter l'impôt. Non réunie depuis 1614." }
+					]
+				},
+				{
+					termes: [,
+						{ terme: "Constitution", definition: "Texte fondamental définissant l'organisation des pouvoirs au sein d'un État." },
+						{ terme: "DDHC", definition: "Déclaration des droits de l'homme et du citoyen, votée le 26 août 1789." },
+						{ terme: "Souveraineté nationale", definition: "Principe selon lequel le pouvoir appartient à la nation et non au roi. Fondement de la Révolution française, consacré par la DDHC (1789)." },
+						{ terme: "Assemblée nationale", definition: "Nom donné le 17 juin 1789 par les députés du Tiers État à leur assemblée, affirmant représenter 96 % de la nation française." },
+						{ terme: "Grande Peur", definition: "Mouvement de panique collective dans les campagnes françaises (juillet 1789) donnant lieu au pillage de châteaux." },
+						{ terme: "Monarchie constitutionnelle", definition: "Régime de la Constitution du 3 septembre 1791 : le roi règne mais son pouvoir est limité." },
+						{ terme: "Suffrage censitaire", definition: "Droit de vote réservé aux citoyens payant un certain niveau d'impôts (citoyens actifs)." }
+					]
+				},
+				{
+					termes: [
+						{ terme: "Sans-culottes", definition: "Habitants pauvres des villes (artisans, ouvriers) qui portaient des pantalons longs et non des culottes courtes des nobles." },
+						{ terme: "Terreur", definition: "Période de gouvernement révolutionnaire (1793-1794) caractérisée par la violente répression des opposants à la Révolution française." },
+						{ terme: "Coalition", definition: "Alliance de monarchies européennes contre la France révolutionnaire." },
+						{ terme: "Contre-révolution", definition: "Mouvement visant à renverser la Révolution et à restaurer l'Ancien Régime : nobles émigrés, insurrection vendéenne, soutien des monarchies étrangères." },
+						{ terme: "Girondins", definition: "Groupe de députés modérés à la Convention (1792-1793), favorables à une stabilisation de la Révolution. Arrêtés et exécutés par les Montagnards en juin 1793." },
+						{ terme: "Montagnards", definition: "Groupe de députés radicaux à la Convention, menés par Robespierre. Ils veulent pousser la Révolution jusqu'au bout et s'emparent du pouvoir en juin 1793." },
+						{ terme: "Comité de salut public", definition: "Comité de 9 à 12 membres créé en avril 1793 pour gouverner et défendre la République face à ses ennemis." },
+						{ terme: "République", definition: "Régime politique dans lequel le pouvoir est exercé par des représentants élus par le peuple, et en l'absence de roi." },
+						{ terme: "Directoire", definition: "Régime républicain (1795-1799) gouverné par 5 Directeurs, renversé par Bonaparte." }
+					]
+				}
+			];
+
+			// =========================================================
+			// DONNÉES COMPÉTENCES — à remplir lors du fichage
+			// Nombre de catégories et de compétences par catégorie : libre
+			// Les 5 catégories ci-dessous sont celles du programme — supprimer
+			// ou alléger celles qui ne sont pas mobilisées dans le chapitre
+			// =========================================================
+			const COMPETENCES = [
+				{
+					emoji: "⏳",
+					titre: "SE REPÉRER DANS LE TEMPS",
+					items: [
+						'Situer les grandes étapes de la Révolution française sur une frise chronologique (1789-1799)',
+						'Distinguer les différentes phases politiques : monarchie constitutionnelle (1791), Première République (1792), Terreur (1793-1794), Directoire (1795-1799)',
+						'Maîtriser les dates clés : 14 juillet 1789, 26 août 1789, 22 septembre 1792, 21 janvier 1793, 9 novembre 1799'
+					]
+				},
+				{
+					emoji: "🗺️",
+					titre: "SE REPÉRER DANS L'ESPACE",
+					items: [
+						"Localiser les foyers de la Grande Peur (juillet 1789) et les zones d'insurrection vendéenne (1793)",
+						'Situer les frontières françaises et les principales menaces extérieures (Autriche, Prusse, Angleterre)',
+						'Identifier les lieux symboliques de la Révolution : Versailles, Paris (Bastille, Tuileries, Jeu de paume, Champ-de-Mars)'
+					]
+				},
+				{
+					emoji: "📝",
+					titre: "ANALYSER ET COMPRENDRE UN DOCUMENT",
+					items: [
+						"Identifier la nature, l'auteur, la date et le contexte d'un document révolutionnaire (discours, loi, mémoires, presse)",
+						"Extraire des informations pertinentes d'une source primaire (cahier de doléances, DDHC, décret)",
+						'Distinguer les points de vue des différents acteurs (sans-culottes, nobles, législateurs, roi)'
+					]
+				},
+				{
+					emoji: "💡",
+					titre: "RAISONNER ET JUSTIFIER",
+					items: [
+						'Expliquer les causes de la Révolution française (triple crise financière, alimentaire, politique)',
+						'Comprendre le passage de la souveraineté royale à la souveraineté nationale comme rupture fondamentale',
+						'Analyser la radicalisation progressive de la Révolution et ses conséquences (de la monarchie constitutionnelle à la Terreur)'
+					]
+				}
+			];
+
+			// =========================================================
+			// Génération dynamique des compétences
+			// =========================================================
+			function buildCompetences() {
+				const grid = document.getElementById('competences-grid');
+				if (!grid) return;
+				grid.innerHTML = '';
+				COMPETENCES.forEach(cat => {
+					const card = document.createElement('div');
+					card.className = 'card';
+					const items = cat.items.map(i => `<li>${i}</li>`).join('');
+					card.innerHTML = `
+						<div class="competences-title">${cat.emoji} ${cat.titre}</div>
+						<ul class="list-styled">${items}</ul>`;
+					grid.appendChild(card);
+				});
+			}
+
+			// =========================================================
+			// DONNÉES PERSONNAGES — à remplir lors du fichage
+			// Nombre de personnages : libre, selon le PDF
+			// =========================================================
+			const PERSONNAGES = [
+				{
+					nom: "Louis XVI",
+					dates: "1754 – 1793",
+					description: "Roi de France de 1774 à 1792, héritier d'un État en faillite. Incapable de mener les réformes nécessaires face aux privilégiés, il convoque les États généraux en 1789. Sa tentative de fuite à Varennes (juin 1791) ruine sa crédibilité. Jugé pour trahison, il est guillotiné le 21 janvier 1793."
+				},
+				{
+					nom: "Maximilien de Robespierre",
+					dates: "1758 – 1794",
+					description: "Avocat d'Arras, député à l'Assemblée constituante puis chef des Montagnards à la Convention. Surnommé « l'Incorruptible », il domine le Comité de salut public pendant la Terreur (1793-1794). Renversé lors du 9-Thermidor, il est guillotiné le 28 juillet 1794."
+				},
+				{
+					nom: "La Fayette",
+					dates: "1757 – 1834",
+					description: "Général et homme politique libéral. Vétéran de la guerre d'Indépendance américaine, il commande la Garde nationale en 1789 et prête serment à la Fête de la Fédération (14 juillet 1790). Symbole de la monarchie constitutionnelle modérée."
+				},
+				{
+					nom: "Napoléon Bonaparte",
+					dates: "1769 – 1821",
+					description: "Général corse, héros des guerres révolutionnaires (victoires en Italie, 1796-1797). Profite de l'instabilité du Directoire pour réaliser le coup d'État du 18-Brumaire (9 novembre 1799) et s'emparer du pouvoir, mettant fin à la Révolution."
+				}
+			];
+
+			// =========================================================
+			// Génération dynamique des personnages
+			// =========================================================
+			function buildPersonnages() {
+				const grid = document.getElementById('personnages-grid');
+				if (!grid) return;
+				grid.innerHTML = '';
+				PERSONNAGES.forEach(p => {
+					const card = document.createElement('div');
+					card.className = 'card';
+					card.innerHTML = `
+						<div class="personnages-title">${p.nom}</div>
+						<div class="personnages-dates">${p.dates}</div>
+						<div class="personnages-content">${p.description}</div>`;
+					grid.appendChild(card);
+				});
+			}
+
+			// ========================================================= — à remplir lors du fichage
+			// Nombre de périodes et de dates par période : libre, selon le PDF
+			// =========================================================
+			const DATES = [
+				{
+					emoji: "⚠️",
+					titre: "Les crises de l'Ancien Régime (1774-1789)",
+					dates: [
+						{ date: "1774", evenement: "Louis XVI monte sur le trône et hérite d'un État en quasi-faillite." },
+						{ date: "janv. 1789", evenement: "Convocation des États généraux par Louis XVI — non réunis depuis 1614." },
+						{ date: "5 mai 1789", evenement: "Ouverture des États généraux à Versailles." }
+					]
+				},
+				{
+					emoji: "🔥",
+					titre: "Naissance de la Révolution (été 1789)",
+					dates: [
+						{ date: "17 juin 1789", evenement: "Le Tiers État se proclame Assemblée nationale." },
+						{ date: "20 juin 1789", evenement: "Serment du Jeu de paume : les députés jurent de donner une Constitution à la France." },
+						{ date: "17 juin 1789", evenement: "Le Tiers État se proclame Assemblée nationale : acte fondateur de la Révolution." },
+						{ date: "20 juin 1789", evenement: "Serment du Jeu de paume : les députés jurent de donner une Constitution à la France." },
+						{ date: "14 juil. 1789", evenement: "Prise de la Bastille par les Parisiens (sans-culottes)." },
+						{ date: "4 août 1789", evenement: "Nuit du 4 août : abolition des privilèges par l'Assemblée nationale constituante." },
+						{ date: "26 août 1789", evenement: "Vote de la Déclaration des droits de l'homme et du citoyen (DDHC)." },
+						{ date: "5-6 oct. 1789", evenement: "Journées d'octobre : 4 000 femmes marchent sur Versailles et forcent Louis XVI à rentrer à Paris." }
+					]
+				},
+				{
+					emoji: "🏛️",
+					titre: "La monarchie constitutionnelle (1790-1791)",
+					dates: [
+						{ date: "14 juil. 1790", evenement: "Fête de la Fédération : 400 000 personnes réunies au Champ-de-Mars, serment civique." },
+						{ date: "20-21 juin 1791", evenement: "Fuite à Varennes : Louis XVI tenté de fuir, arrêté et ramené à Paris." },
+						{ date: "3 sept. 1791", evenement: "Adoption de la Constitution : naissance de la monarchie constitutionnelle." }
+					]
+				},
+				{
+					emoji: "⚔️",
+					titre: "La Chute de la monarchie constitutionnelle (1792-1793)",
+					dates: [
+						{ date: "20 avr. 1792", evenement: "L'Assemblée législative déclare la guerre à l'Autriche." },
+						{ date: "11 juil. 1792", evenement: "L'Assemblée législative proclame « La Patrie en danger »." },
+						{ date: "10 août 1792", evenement: "Prise des Tuileries : Louis XVI emprisonné au Temple." },
+						{ date: "22 sept. 1792", evenement: "Proclamation de la Première République." },
+						{ date: "21 jan. 1793", evenement: "Exécution de Louis XVI (Louis Capet) par guillotine." }
+					]
+				},
+				{
+					emoji: "🔪",
+					titre: "La Terreur (1793-1794)",
+					dates: [
+						{ date: "avr. 1793", evenement: "Création du Comité de salut public pour gouverner la République en guerre." },
+						{ date: "2 juin 1793", evenement: "Les Montagnards font arrêter les Girondins et s'emparent du pouvoir." },
+						{ date: "23 août 1793", evenement: "Décret de levée en masse : tous les Français mobilisés pour la défense de la République." },
+						{ date: "17 sept. 1793", evenement: "Loi des suspects : arrestation de tout opposant présumé à la Révolution." },
+						{ date: "28 juil. 1794", evenement: "Chute et exécution de Robespierre (9-Thermidor) : fin de la Terreur." }
+					]
+				},
+				{
+					emoji: "🎭",
+					titre: "Le Directoire (1795-1799)",
+					dates: [
+						{ date: "oct. 1795", evenement: "Constitution de l'an III : création du Directoire (5 Directeurs)." },
+						{ date: "9 nov. 1799", evenement: "Coup d'État du 18-Brumaire : Bonaparte renverse le Directoire et s'empare du pouvoir." }
+					]
+				}
+			];
+
+			// =========================================================
+			// Génération dynamique des dates clés
+			// =========================================================
+			// =========================================================
+			// Génération dynamique des dates clés
+			// =========================================================
+			// =========================================================
+			// Génération dynamique des dates clés
+			// =========================================================
+			function buildDates() {
+				const container = document.getElementById('dates-content');
+				if (!container) return;
+				container.innerHTML = '';
+				DATES.forEach(periode => {
+					const items = periode.dates.map(d =>
+						`<li><span class="date-major">${d.date}</span><span class="date-event"> ${d.evenement}</span></li>`
+					).join('');
+					container.innerHTML += `
+						<div class="dates-highlight-box">
+							<h4>${periode.emoji} ${periode.titre}</h4>
+							<ul class="list-styled">${items}</ul>
+						</div>`;
+				});
+			}
+
+			// =========================================================
+			// =========================================================
+			function buildVocabThematique() {
+				const grid = document.getElementById('vocab-thematique-grid');
+				if (!grid) return;
+				grid.innerHTML = '';
+				VOCAB_THEMATIQUE.forEach(cat => {
+					const card = document.createElement('div');
+					card.className = 'card';
+					const items = cat.termes.map(t =>
+						`<li><span class="vocab-term">${t.terme} :</span><span class="vocab-definition">${t.definition}</span></li>`
+					).join('');
+					card.innerHTML = `
+						<div class="vocab-category-title">${cat.emoji} ${cat.categorie}</div>
+						<ul class="list-styled">${items}</ul>`;
+					grid.appendChild(card);
+				});
+			}
+
+			// =========================================================
+			// Génération du vocabulaire par parties
+			// =========================================================
+			function buildVocabParties() {
+				const grid = document.getElementById('vocab-parties-grid');
+				if (!grid) return;
+				grid.innerHTML = '';
+				const n = Math.min(NB_PARTIES, PARTIES.length, VOCAB_PAR_PARTIES.length);
+				for (let i = 0; i < n; i++) {
+					const partie = PARTIES[i];
+					const vocab = VOCAB_PAR_PARTIES[i];
+					const card = document.createElement('div');
+					card.className = 'card';
+					const items = vocab.termes.map(t =>
+						`<li><span class="vocab-term">${t.terme} :</span><span class="vocab-definition">${t.definition}</span></li>`
+					).join('');
+					card.innerHTML = `
+						<div class="vocab-category-title">${partie.roman} — ${partie.titre}</div>
+						<ul class="list-styled">${items}</ul>`;
+					grid.appendChild(card);
+				}
+			}
+
+			// =========================================================
+			// Toggle onglets vocabulaire
+			// =========================================================
+			function switchVocabTab(tab, btn) {
+				document.querySelectorAll('.vocab-tab-content').forEach(el => el.classList.remove('active'));
+				document.querySelectorAll('.vocab-tab-btn').forEach(el => el.classList.remove('active'));
+				document.getElementById('vocab-tab-' + tab).classList.add('active');
+				btn.classList.add('active');
+			}
+
+			// Couleurs par partie (cohérentes avec le CSS existant)
+
+			// =========================================================
+			// Génération dynamique du Plan
+			// =========================================================
+			function buildPlan() {
+				const grid = document.getElementById('plan-cards-grid');
+				if (!grid) return;
+				grid.innerHTML = '';
+				const n = Math.min(NB_PARTIES, PARTIES.length);
+				for (let i = 0; i < n; i++) {
+					const p = PARTIES[i];
+					const color = PLAN_COLORS[i];
+					const card = document.createElement('div');
+					card.className = 'card';
+					card.style.borderColor = color;
+					card.innerHTML = `
+						<div class="plan-card-header">
+							<div class="plan-card-icon" style="background:${color}">${p.roman}</div>
+							<h3 class="plan-card-title" style="color:${color}">${p.titre}</h3>
+						</div>
+						<div class="plan-card-content">
+							<p>${p.description}</p>
+						</div>`;
+					grid.appendChild(card);
+				}
+			}
+
+			// =========================================================
+			// Génération dynamique du Bilan
+			// =========================================================
+			function buildBilan() {
+				const container = document.getElementById('bilan-aspects');
+				if (!container) return;
+				container.innerHTML = '';
+				const n = Math.min(NB_PARTIES, PARTIES.length);
+				for (let i = 0; i < n; i++) {
+					const p = PARTIES[i];
+					container.innerHTML += `
+						<h5>${p.bilan_titre}</h5>
+						<p>${p.bilan_texte}</p>`;
+				}
+			}
+
+			// =========================================================
+			// Variables globales UI
+			// =========================================================
+			let isDarkTheme = false;
+			let currentFontSize = 16;
+
+			// Mode sombre/clair
+			function toggleTheme() {
+				isDarkTheme = !isDarkTheme;
+				document.body.dataset.theme = isDarkTheme ? 'dark' : '';
+				const btn = document.querySelector('.btn-theme');
+				btn.textContent = isDarkTheme ? '☀️ Clair' : '🌙 Sombre';
+				showNotification(isDarkTheme ? 'Mode sombre activé' : 'Mode clair activé');
+			}
+
+			// Taille de police
+			function changeFontSize() {
+				const sizes = [14, 16, 18, 20, 22];
+				const currentIndex = sizes.indexOf(currentFontSize);
+				const nextIndex = (currentIndex + 1) % sizes.length;
+				currentFontSize = sizes[nextIndex];
+				document.body.style.fontSize = currentFontSize + 'px';
+				const sizeNames = ['Petit', 'Normal', 'Grand', 'Très grand', 'Extra grand'];
+				showNotification(`Taille : ${sizeNames[nextIndex]}`);
+			}
+
+			// Notification
+			function showNotification(message) {
+				const existing = document.querySelector('.notification');
+				if (existing) existing.remove();
+				const notification = document.createElement('div');
+				notification.className = 'notification';
+				notification.textContent = message;
+				document.body.appendChild(notification);
+				setTimeout(() => {
+					notification.style.animation = 'slideIn 0.3s ease-in reverse';
+					setTimeout(() => notification.remove(), 300);
+				}, 2000);
+			}
+
+			// =========================================================
+			// Initialisation
+			// =========================================================
+			document.addEventListener('DOMContentLoaded', () => {
+				buildPlan();
+				buildBilan();
+				buildCompetences();
+				buildDates();
+				buildPersonnages();
+				buildVocabThematique();
+				buildVocabParties();
+				console.log(`ðŸ“š Fiche Histoire chargée — ${NB_PARTIES} partie(s)`);
+			});
+		</script>
+	</body>
+</html>
+</body>
+</html>
